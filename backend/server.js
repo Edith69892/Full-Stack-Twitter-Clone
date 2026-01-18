@@ -1,24 +1,21 @@
 import express from 'express';
 import cors from 'cors';
-import {app} from "./app.js"
+import { app } from "./app.js"
 import dotenv from 'dotenv/config';
-import mongoose from 'mongoose';  
-
-const PORT = process.env.PORT || 5000;
+import mongoose from 'mongoose';
 
 dotenv.config({
-  path : "./.env"
+  path: "./.env"
 });
 
-;(async () =>{
+; (async () => {
   try {
     await mongoose.connect(`${process.env.MONGODB_URI}/X-Clone`)
 
     app.listen(process.env.PORT, () => {
-  console.log(`Server is running on http://localhost:${process.env.PORT}`);
-});
+      console.log(`Server is running on http://localhost:${process.env.PORT}`);
+    });
   } catch (error) {
-    console.error("Error connecting to the database:", error);  
+    console.error("Error connecting to the database:", error);
   }
 })()
-
