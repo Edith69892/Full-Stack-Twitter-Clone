@@ -12,7 +12,7 @@ const generateTokens = (userId) => {
 
     const accessToken = jwt.sign(
         {
-            email: user.email,
+            _id: user._id,
         },
         process.env.ACCESS_TOKEN_SECRET,
         {
@@ -22,7 +22,7 @@ const generateTokens = (userId) => {
 
     const refreshToken = jwt.sign(
         {
-            email: user.email,
+            _id: user._id,
         },
         process.env.REFRESH_TOKEN_SECRET,
         {
