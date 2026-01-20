@@ -32,5 +32,7 @@ const generateTokens = (email) => {
 
     user.refreshToken = refreshToken
 
-    return {accessToken,refreshToken}
+    return { accessToken, refreshToken }
 }
+
+export { generateTokens }
