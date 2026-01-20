@@ -1,13 +1,13 @@
 import jwt from "jsonwebtoken"
 import { User } from "../models/user.model"
-import { ConnectionStates } from "mongoose"
+import ApiError from "./ApiError.js"
 
-const generateTokens = (email) => {
+const generateTokens = (userId) => {
 
-    const user = User.find((user) => user.email === email)
+    const user = User.findById(userId)
 
     if (!user) {
-        throw Error
+        throw new ApiError(404, "User not found while generating tokens")
     }
 
     const accessToken = jwt.sign(
