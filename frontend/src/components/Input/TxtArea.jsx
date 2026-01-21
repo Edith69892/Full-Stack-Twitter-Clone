@@ -2,7 +2,7 @@ import React from 'react'
 import { useRef } from 'react'
 import "../Input/TextArea.css"
 
-function TxtArea() {
+function TxtArea({ ...props }, ref) {
     const textAreaRef = useRef(null)
 
     const handleInput = () => {
@@ -13,7 +13,13 @@ function TxtArea() {
 
     return (
         <textarea
-            ref={textAreaRef}
+            {...props}
+            ref={(el) => {
+                textAreaRef.current = el
+                if (ref) {
+                    ref(el)
+                }
+            }}
             onInput={handleInput}
             placeholder="What's happening?"
             className="tweet-textarea"
@@ -21,4 +27,4 @@ function TxtArea() {
     )
 }
 
-export default TxtArea
+export default React.forwardRef(TxtArea)
