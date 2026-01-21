@@ -1,19 +1,27 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import { errorMiddleware } from "./middlewares/errorMiddleware.js";
+import { errorHandler } from "./middleware/error.middleware.js";
 
 const app = express();
 
 app.use(cors({
     origin: "*",
-    caredentials: true,
+    credentials: true,
 }))
 
-app.use(express.json())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "10kb" }));
 app.use(cookieParser())
 
+//importing Routes
+
+import authRouter from "./routes/auth.route.js"
+
+//Using Routes
+
+app.use("/api/v1/auth", authRouter)
 
 // Error Handling Middleware
-app.use(errorMiddleware)
+app.use(errorHandler)
 export {app}

@@ -1,4 +1,4 @@
-import { asyncHandler } from "../utils/asyncHandler";
+import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { User } from "../models/user.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
@@ -79,8 +79,8 @@ const login = asyncHandler(async (req, res) => {
         throw new ApiError(401, "Invalid password. Please try again.")
     }
 
-    const { accessToken, refreshToken } = generateTokens(user._id);
-
+    const { accessToken, refreshToken } = await generateTokens(user._id);
+    
     const loggedInUser = await User.findById(user._id).select("-password -refreshToken");
 
     const options = cookieOptions;
