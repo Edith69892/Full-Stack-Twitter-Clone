@@ -1,8 +1,8 @@
-import { Post } from "../models/post.model";
-import { asyncHandler } from "../utils/asyncHandler";
-import { ApiError } from "../utils/ApiError";
+import { Post } from "../models/post.model.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
+import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
-import { uploadOnCloudinary } from "../utils/uploadOnCloudinary.js";
+import { uploadOnCloudinary } from "../utils/cloudinary.js";
 import { isValidObjectId } from "mongoose";
 
 
@@ -110,19 +110,19 @@ const deletePost = asyncHandler(async (req, res) => {
 
 })
 
-const getPostById = asyncHandler(async(req,res) => {
-    const {postId} = req.params;
+const getPostById = asyncHandler(async (req, res) => {
+    const { postId } = req.params;
 
     if (!isValidObjectId(postId)) {
         throw new ApiError(400, "Invalid Post id.");
     }
 
     const post = await Post.findOne({
-        _id : postId,
-        isDeleted : false
+        _id: postId,
+        isDeleted: false
     }).populate("author", "username avatar");
 
-    if(!post){
+    if (!post) {
         throw new ApiError(404, "Post not found.")
     }
 
@@ -131,4 +131,4 @@ const getPostById = asyncHandler(async(req,res) => {
     )
 })
 
-export { addPost, updatePost,deletePost, getPostById};
+export { addPost, updatePost, deletePost, getPostById };

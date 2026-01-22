@@ -10,3 +10,5 @@ router.route("/").post(addPost);
 router.route("/:postId").patch(updatePost)
 router.route("/:postId").delete(deletePost)
 router.route("/:postId").get(getPostById)
+
+export default router

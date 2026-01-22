@@ -17,11 +17,13 @@ app.use(cookieParser())
 //importing Routes
 
 import authRouter from "./routes/auth.route.js"
+import postRouter from "./routes/post.route.js"
 
 //Using Routes
 
 app.use("/api/v1/auth", authRouter)
+app.use("/api/v1/post", postRouter)
 
 // Error Handling Middleware
 app.use(errorHandler)
-export {app}
+export { app }
