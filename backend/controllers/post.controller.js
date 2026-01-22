@@ -3,6 +3,7 @@ import { asyncHandler } from "../utils/asyncHandler";
 import { ApiError } from "../utils/ApiError";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { uploadOnCloudinary } from "../utils/uploadOnCloudinary.js";
+import { isValidObjectId } from "mongoose";
 
 
 const addPost = asyncHandler(async (req, res) => {
@@ -40,6 +41,45 @@ const addPost = asyncHandler(async (req, res) => {
 
     res.status(201).json(
         new ApiResponse(201, "Post created successfully", newPost)
+    )
+
+})
+
+const updatePost = asyncHandler(async (req, res) => {
+
+    //TODO : image update continue
+
+    const { postId } = req.params;
+    const { postContent } = req.body;
+
+    if (!isValidObjectId(postId)) {
+        throw new ApiError(400, "Invalid Post id.");
+    }
+
+    if (!req.user?._id) {
+        throw new ApiError(401, "Unauthorized! Please login to continue.")
+    }
+
+    const post = await Post.findById(postId)
+
+    if (!post) {
+        throw new ApiError(404, "Post not found.")
+    }
+
+    if (post.author.toString() !== req.user._id.toString()) {
+        throw new ApiError(403, "Only can author update this post.")
+    }
+
+    if (!postContent.trim()) {
+        throw new ApiError(400, "Post content is required.");
+    }
+
+    post.content = postContent || post.content
+
+    await post.save();
+
+    res.status(200).json(
+        new ApiResponse(200, "Post update successfully.", post)
     )
 
 })
