@@ -6,6 +6,8 @@ import bcrypt from "bcryptjs";
 import { generateTokens } from "../utils/generateTokens.js";
 import { cookieOptions } from "../utils/cookieOptions.js";
 
+
+//Todo : sign up with avatar 
 const signUp = asyncHandler(async (req, res) => {
 
     const { name, username, email, password } = req.body;

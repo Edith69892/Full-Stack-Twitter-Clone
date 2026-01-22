@@ -43,3 +43,32 @@ const addPost = asyncHandler(async (req, res) => {
     )
 
 })
+
+const deletePost = asyncHandler(async (req, res) => {
+
+    const { postId } = req.params
+
+    if (!req.user?._id) {
+        throw new ApiError(401, "Unauthorized! Please login to continue.")
+    }
+
+    const post = await Post.findById(postId);
+
+    if (!post) {
+        throw new ApiError(404, "Post not found.")
+    }
+
+    if (post.author.toString() !== req.user._id.toString()) {
+        throw new ApiError(403, "Only can author delete this post.")
+    }
+
+    post.isDeleted = true;
+    await post.save();
+
+    res.status(200).json(
+        new ApiResponse(200, "Post deleted successfully.")
+    );
+
+})
+
+export { addPost };
