@@ -32,7 +32,6 @@ const addPost = asyncHandler(async (req, res) => {
         }
     }
 
-
     const newPost = await Post.create({
         content: postContent,
         images: uploadedImages,
@@ -111,4 +110,25 @@ const deletePost = asyncHandler(async (req, res) => {
 
 })
 
-export { addPost };
+const getPost = asyncHandler(async(req,res) => {
+    const {postId} = req.params;
+
+    if (!isValidObjectId(postId)) {
+        throw new ApiError(400, "Invalid Post id.");
+    }
+
+    const post = await Post.findOne({
+        _id : postId,
+        isDeleted : false
+    }).populate("author", "username avatar");
+
+    if(!post){
+        throw new ApiError(404, "Post not found.")
+    }
+
+    res.status(200).json(
+        new ApiResponse(200, "Post fetched successfully.", post)
+    )
+})
+
+export { addPost, updatePost,deletePost, getPost};
