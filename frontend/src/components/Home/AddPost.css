@@ -75,3 +75,53 @@
 .add-post-modal-header button:hover{
   background-color: gray;
 }
+
+/* img preview container */
+
+.img-preview-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 6px;
+}
+
+.img-previw-item{
+  position: relative;
+  border-radius: 15px;
+  aspect-ratio: 0.8/1;
+  background: #111;
+  overflow: hidden;
+  border: 1px solid #2f3336;
+}
+
+.img-preview{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-preview-close{
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+}
+
+.img-preview-close button {
+  background: rgba(15, 20, 25, 0.75);
+  color: #fff;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.img-preview-close button:hover {
+  background:gray;
+  transform: scale(1.05);
+}

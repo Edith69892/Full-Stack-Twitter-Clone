@@ -63,11 +63,14 @@ function AddPost({ variant = "inline", onClose }) {
                     <div className="img-preview-container">
                         {images.map((imgFile, index) => (
                             <div className="img-previw-item">
-                                <img src={URL.createObjectURL(imgFile)} />
+                                <img src={URL.createObjectURL(imgFile)}
+                                     className='img-preview' />
+                                     <div className='img-preview-close'>
                                 <button type='button'
                                     onClick={() => removeImg(index)}>
                                     ✕
                                 </button>
+                                </div>
                             </div>
                         )
                         )}

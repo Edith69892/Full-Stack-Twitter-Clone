@@ -65,6 +65,9 @@ function Post() {
                 <div className='post-text'>
                     This is a sample post content.
                 </div>
+                <div className="images">
+                    
+                </div>
 
                 <div className='post-actions'>
                     <button className="action-btn heart-btn">
