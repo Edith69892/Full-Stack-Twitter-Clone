@@ -109,7 +109,7 @@ function AddPost({ variant = "inline", onClose }) {
                                     }
                                 })} />
                         </label>
-                        <button type='submit' disabled={!content}>Post</button>
+                        <button type='submit'>Post</button>
                     </div>
                 </div>
             </div>
