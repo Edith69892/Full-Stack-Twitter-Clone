@@ -4,7 +4,6 @@ import "../Input/TextArea.css";
 
 function TxtArea({ ...props }, ref) {
   const textAreaRef = useRef(null);
-
   const handleInput = () => {
     const textArea = textAreaRef.current;
     textArea.style.height = "auto";
@@ -21,7 +20,7 @@ function TxtArea({ ...props }, ref) {
         }
       }}
       onInput={handleInput}
-      placeholder="What's happening?"
+      placeholder={props.placeholder ? props.placeholder : "What;s happening?"}
       className="tweet-textarea"
     />
   );

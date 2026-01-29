@@ -1,13 +1,24 @@
 import React from "react";
 import ProfileHeader from "../profile/ProfileHeader";
-
-import { ArrowLeft } from "lucide-react";
-import { FiSearch } from "react-icons/fi";
+import Modal from "../Modal/Modal";
+import { useState } from "react";
+import ProfileStats from "../profile/ProfileStats";
+import ProfileTabs from "../profile/ProfileTabs";
+import EditProfile from "../profile/EditProfile";
 
 function Profile() {
+  const [showEditProfile, setShowEditProfile] = useState(false);
   return (
-    <div className="">
+    <div>
       <ProfileHeader />
+      <ProfileStats onOpen={() => setShowEditProfile(true)} />
+      <ProfileTabs />
+
+      {showEditProfile && (
+        <Modal onClose={() => setShowEditProfile(false)}>
+          <EditProfile onClose={() => setShowEditProfile(false)} />
+        </Modal>
+      )}
     </div>
   );
 }

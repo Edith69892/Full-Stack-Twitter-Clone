@@ -10,7 +10,7 @@ function ProfileHeader() {
       </button>
       <div className="gap-0.4 flex flex-col">
         <h3 className="text-xl font-bold">Roshan</h3>
-        <span className="text-[13 px] text-[rgb(113,118,123)]">1933 posts</span>
+        <span className="text-[13px] text-[rgb(113,118,123)]">1933 posts</span>
       </div>
 
       <button className="ml-auto cursor-pointer rounded-4xl p-2 hover:bg-[rgba(67,67,67,0.7)]">
