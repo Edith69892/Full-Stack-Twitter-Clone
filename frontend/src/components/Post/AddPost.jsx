@@ -5,7 +5,7 @@ import userLogo from "../../assets/userLogo1.jpg";
 import Avatar from "../Avatar/Avatar.jsx";
 import TxtArea from "../Input/TxtArea.jsx";
 import { FiImage } from "react-icons/fi";
-import "../pages/Home/AddPost.css";
+import "./AddPost.css";
 
 function AddPost({ variant = "inline", onClose }) {
   const [selectFile, setSelectFile] = useState([]);

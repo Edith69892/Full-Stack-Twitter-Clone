@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/logo3.png";
+import logo from "../../../assets/logo3.png";
 import { MdHome } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
 import { FiBookmark, FiSettings, FiLogOut } from "react-icons/fi";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
-import userLogo from "../../assets/userLogo1.jpg";
+import userLogo from "../../../assets/userLogo1.jpg";
 import "./LeftBar.css";
 import Avatar from "../../Avatar/Avatar.jsx";
 import Modal from "../../Modal/Modal.jsx";

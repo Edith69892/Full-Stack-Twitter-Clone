@@ -1,7 +1,4 @@
-
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -11,7 +8,6 @@
   min-height: 100vh;
   display: flex;
   justify-content: right;
-  border-right: 1px solid #2f3336;
 }
 
 nav {
@@ -53,20 +49,19 @@ ul li {
 
 .item-container .icon span {
   font-size: 1.1rem;
-  font-family:  "Helvetica Neue", Helvetica, Arial, sans-serif;;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
 }
 
 .item-container:hover .icon {
   background-color: #1da1f2;
-
 }
 
 /* post button */
 .post-btn {
   margin-bottom: 10px;
   background-color: black;
-    border-radius: 30px;
+  border-radius: 30px;
 }
 
 .post-btn button {
@@ -91,10 +86,9 @@ ul li {
   margin-top: 10px;
 }
 
-.profile-btn:hover{
+.profile-btn:hover {
   background-color: #1da1f2;
 }
-
 
 .profile-container {
   display: flex;
@@ -103,15 +97,14 @@ ul li {
   padding: 5px;
 }
 
-.profile-img{
-    /* border: 1px solid black; */
-    
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+.profile-img {
+  /* border: 1px solid black; */
 
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .profile-info {
   display: flex;

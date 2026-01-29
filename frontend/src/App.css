@@ -1,21 +1,19 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
-html body{
+html,
+body {
   height: 100%;
+  margin: 0;
+  padding: 0;
   overflow-y: auto;
-    background-color: black;
+  background-color: black;
 }
 
-.main-container{
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    /* padding: 10px; */
-    border-top: 2px solid #2f3336;
-    border-bottom: 2px solid #2f3336;
+.main-container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  /* padding: 10px; */
+  border-top: 2px solid #2f3336;
+  border-bottom: 2px solid #2f3336;
 }
 
 .component-container {
@@ -25,13 +23,24 @@ html body{
 }
 
 .component-container > :first-child {
-  width: 25vw;          
-  flex-shrink: 0;      
+  width: 25vw;
+  flex-shrink: 0;
 }
 
 main {
   flex: 1;
   height: 100vh;
-  overflow-y: auto;    
+  overflow-y: auto;
   background: black;
+  border-left: 1px solid #2f3336;
+  border-right: 1px solid #2f3336;
+}
+
+.rightBar {
+  width: 33vw;
+  min-width: 300px;
+  padding: 10px 40px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }

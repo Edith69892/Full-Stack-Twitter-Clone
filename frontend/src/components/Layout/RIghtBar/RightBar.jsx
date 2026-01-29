@@ -1,6 +1,6 @@
 import React from "react";
 import { FiSearch } from "react-icons/fi";
-import userLogo from "../../assets/userLogo1.jpg";
+import userLogo from "../../../assets/userLogo1.jpg";
 import Follows from "./FollowComponent/Follows";
 import "./RightBar.css";
 

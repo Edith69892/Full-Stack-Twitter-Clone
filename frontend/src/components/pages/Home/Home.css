@@ -20,12 +20,3 @@
   border-left: 1px solid #2f3336;
   border-right: 1px solid #2f3336;
 }
-
-.rightBar {
-  width: 33vw;
-  min-width: 300px;
-  padding: 10px 40px;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-}
